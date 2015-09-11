@@ -29,15 +29,10 @@ public class XmlRatesParser {
             DocumentBuilder builder = factory.newDocumentBuilder();
 
             InputSource is = new InputSource(new StringReader(xmlToParse));
-
             Document doc = builder.parse(is);
-
             Element rootel = doc.getDocumentElement();
-
             NodeList organization = rootel.getElementsByTagName("organization");
-
             for (int i = 0; i < organization.getLength(); i++) {
-
                 Element labTest = (Element) organization.item(i);
                 String organizationId = organization.item(i).getAttributes().getNamedItem("id").getNodeValue();
                 NodeList coursesTotal = labTest.getElementsByTagName("currencies");
@@ -46,18 +41,11 @@ public class XmlRatesParser {
                     for (int j = 0; j < coursesTotal.getLength(); j++) {
                         Element test = (Element) coursesTotal.item(j);
                         NodeList coursesDetail = test.getElementsByTagName("c");
-
                         for (int k = 0; k < coursesDetail.getLength(); ++k) {
-
                             Element condition = (Element) coursesDetail.item(k);
-
-                            String value = condition.getAttributes().getNamedItem("id").getNodeValue();
-                            String valueCourse1 = condition.getAttributes().getNamedItem("br").getNodeValue();
-                            String valueCourse2 = condition.getAttributes().getNamedItem("ar").getNodeValue();
-
-                            ratesList.add(value);
-                            ratesList.add(valueCourse1);
-                            ratesList.add(valueCourse2);
+                            ratesList.add(condition.getAttributes().getNamedItem("id").getNodeValue());
+                            ratesList.add(condition.getAttributes().getNamedItem("br").getNodeValue());
+                            ratesList.add(condition.getAttributes().getNamedItem("ar").getNodeValue());
                         }
                     }
                 }

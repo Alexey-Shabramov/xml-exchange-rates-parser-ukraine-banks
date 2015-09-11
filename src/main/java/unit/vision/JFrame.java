@@ -1,26 +1,11 @@
 package unit.vision;
 
-/**
- * Created by CODER11_32 on 17.07.2015.
- */
-
 import org.apache.commons.lang3.StringUtils;
 import unit.common.XmlRatesParser;
 import unit.utils.Constants;
 import unit.utils.XmlScanner;
 import unit.validator.RatesRequestValidator;
-
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import java.io.IOException;
-
-import java.lang.reflect.Field;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -690,7 +675,8 @@ public class JFrame extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-
+        ratesList = null;
+        XmlScanner.xml = null;
         jTextArea2.setText(null);
         jTextArea1.setText(null);
         jTextArea4.setText(null);
@@ -729,7 +715,6 @@ public class JFrame extends javax.swing.JFrame {
         XmlScanner.xml = XmlScanner.parsePathXml();
 
         if(StringUtils.isNotEmpty(XmlScanner.xml)){
-
             ratesList = XmlRatesParser.parseXml(XmlScanner.xml, Constants.PRIVATE_BANK_ID);
             if(!ratesList.isEmpty() && RatesRequestValidator.validateBank(ratesList)){
                 jTextArea2.append(ratesList.get(7));
@@ -738,6 +723,7 @@ public class JFrame extends javax.swing.JFrame {
                 jTextArea3.append(ratesList.get(2));
                 jTextArea6.append(ratesList.get(4));
                 jTextArea5.append(ratesList.get(5));
+                ratesList = null;
             }
             else{
                 jTextArea2.append(Constants.XML_ERROR);
@@ -945,7 +931,7 @@ public class JFrame extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea17;
     private javax.swing.JTextArea jTextArea18;
     private javax.swing.JTextArea jTextArea19;
-    public static javax.swing.JTextArea jTextArea2;
+    public javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea20;
     private javax.swing.JTextArea jTextArea21;
     private javax.swing.JTextArea jTextArea22;

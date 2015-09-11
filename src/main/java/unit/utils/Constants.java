@@ -28,17 +28,17 @@ public class Constants {
      */
     public static final String XML_ERROR = "Ошибка";
     public static final String TITLE = "Программа визирования курсов валют";
+
     /**
      * JFrame text
      */
     public static final String BUY = "Купить";
     public static final String SELL = "Продать";
-
     public static final String EUR = "EUR";
     public static final String RUR = "RUR";
     public static final String USD = "USD";
-
     public static final String NOTE = "Операция загрузки курса может длиться несколько секунд (в зависимости от соединения)";
+
     /**
      * JButton title's text
      */
